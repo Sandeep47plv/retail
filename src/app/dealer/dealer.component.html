@@ -1,0 +1,110 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col">
+            <h4>
+                Retail Campaign Details: {{ title }}
+            </h4>
+        </div>
+        <div class="col">
+            <h4 class="float-right text-danger">
+                Service Effectiveness Score/Target(%): {{percent}}
+            </h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <small class="col">Campaign Type: </small>
+        <div class="col">
+                <p-multiSelect [options]="campaigneTypes" [(ngModel)]="selectedCampaigneType"></p-multiSelect>
+        </div>
+        <small class="col">Line Make:</small>
+        <div class="col">
+                <p-multiSelect [options]="lineTypes" [(ngModel)]="selectedLineType"></p-multiSelect>
+        </div>
+        <small class="col">From Date:</small>
+        <div class="col">
+                <p-calendar [(ngModel)]="fromDate"></p-calendar>
+        </div>
+        <small class="col">To Date:</small>
+        <div class="col">
+                <p-calendar [(ngModel)]="toDate"></p-calendar>
+        </div>
+    </div>
+    <h4 class="mt-3">
+        Sub Filter
+    </h4>
+    <hr>
+    <div class="row">
+        <small class="col-2">
+            Vehical campaign status: </small>
+        <div class="col-4">
+                <p-dropdown [options]="verticalCampaigneTypes" [(ngModel)]="selectedVerticalType" [showClear]="true"></p-dropdown>
+        </div>
+
+        <small class="col-1">From Date:</small>
+        <div class="col">
+                <p-calendar [(ngModel)]="subFromDate"></p-calendar>
+        </div>
+        <small class="col-1">To Date:</small>
+        <div class="col">
+                <p-calendar [(ngModel)]="subToDate"></p-calendar>
+        </div>
+    </div>
+    <h4 class="mt-3 text-primary">
+        Overall Remeday Available Date between Mar 26,2018 to Apr 26,2018 (100):
+    </h4>
+    <h4 class="mt-3 ">
+        Selection Criteria
+    </h4>
+    <hr>
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <small class="bd-highlight text-dark">Campaign Type:</small>
+        <small class="pl-2 bd-highlight text-black-100">{{selectedCampaigneType}}</small>
+        <small class="pl-2 bd-highlight text-dark">Line Make:</small>
+        <small class="pl-2 bd-highlight text-black-100">{{selectedLineType}}</small>
+        <small class="pl-2 bd-highlight text-dark">Campaign Date:</small>
+        <small class="pl-2 bd-highlight text-black-100"> {{ getDate()}}</small>
+        <small class="pl-2 bd-highlight text-dark">Vehical campaign status: </small>
+        <small class="pl-2 bd-highlight text-black-100">{{ selectedVerticalType }}</small>
+    </div>
+    <h4 class="mt-3 text-primary">
+
+        <!-- <a href="#" (click)="clear()">Clear Selection Criteria</a> -->
+        <a [routerLink]="['/vendor']">Vendor</a>
+    </h4>
+    <h4 class="text-danger">
+        Disclaimer: Service Effective Score and Outreach Opportunity is based on the detail provided by service smarts.
+    </h4>
+    <small>Details as of: April 5, 2018 at 12:05:56 PM EDT</small>
+    <hr>
+
+    <hr>
+    <p-table #dt [value]="rowData" [columns]="columnDefs" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field==EOO">
+                            {{col.headerName}}
+                                <input *ngSwitchCase="'stopSales'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                                <input *ngSwitchCase="'defectCode'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                                <input *ngSwitchCase="'defectDescription'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                                <input *ngSwitchCase="'bulletinNumber'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                            </th>
+                        </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-row let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                                {{row[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+    </p-table>
+
+</div>
+<hr>
+<div class="bottom">
+    <h4 class="float-right pb-2">
+        Export: PDF / Excel
+    </h4>
+</div>
