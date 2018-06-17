@@ -1,3 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ag-grid/dist/styles/ag-grid.css";
 @import "~ag-grid/dist/styles/ag-theme-balham.css";/* You can add global styles to this file, and also import other style files */
+
+/* body{
+  background-color:#f2f2f2;
+} */
+.multi{
+  line-height: 5px !important;
+}
+.ui-multiselect-panel {
+    min-width: 21em !important;
+  }
+
+  .ui-multiselect .ui-multiselect-label-container {
+    background-color:lightgray;
+  }
+
+  .ui-multiselect .ui-multiselect-label  {
+    background-color: transparent;
+    margin: 8px 0;
+  }
+
+  .ui-multiselect .ui-multiselect-trigger {
+  background-color: transparent;
+  }
+
+  .dealer .ui-table-wrapper,
+  .ui-table-scrollable-wrapper {
+    overflow: auto;
+  }
+
+  .dealer .ui-table-wrapper table,
+  .ui-table-scrollable-view{
+    width: 120%;
+  }
+
+  .ui-dropdown .ui-dropdown-trigger {
+    background-color: lightgray;
+  }
+  
+  

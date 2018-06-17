@@ -1,110 +1,128 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col">
-            <h4>
+            <h4 style="color:#5D92B1;font-weight:700;font-size:18px">
                 Retail Campaign Details: {{ title }}
             </h4>
         </div>
         <div class="col">
-            <h4 class="float-right text-danger">
+            <h4 class="float-right" style="color:red;font-family:arial black;font-weight:700;">
                 Service Effectiveness Score/Target(%): {{percent}}
             </h4>
         </div>
     </div>
     <hr>
-    <div class="row">
-        <small class="col">Campaign Type: </small>
-        <div class="col">
-                <p-multiSelect [options]="campaigneTypes" [(ngModel)]="selectedCampaigneType"></p-multiSelect>
-        </div>
-        <small class="col">Line Make:</small>
-        <div class="col">
-                <p-multiSelect [options]="lineTypes" [(ngModel)]="selectedLineType"></p-multiSelect>
-        </div>
-        <small class="col">From Date:</small>
-        <div class="col">
-                <p-calendar [(ngModel)]="fromDate"></p-calendar>
-        </div>
-        <small class="col">To Date:</small>
-        <div class="col">
+    <div class="row margin-0">
+            <div class="col padding-left-0">
+                <small class="bd-highlight text-dark" style="font-weight:700;">Campaign Type: </small>
+                <p-multiSelect class="multi float-right" [options]="campaigneTypes" [(ngModel)]="selectedCampaigneType"></p-multiSelect>
+            </div>
+            <div class="col text-center">
+                <small class="bd-highlight text-dark" style="font-weight:700;">Line Make:</small>
+                <p-multiSelect class="multi float-right" [options]="lineTypes" [(ngModel)]="selectedLineType"></p-multiSelect>
+            </div>
+            <small class="bd-highlight text-dark" style="font-weight:700;">Campaign From Date:</small>
+            <div class="col">
+                <p-calendar [(ngModel)]="fromDate" mode="inline"></p-calendar>
+            </div>
+            <small class="bd-highlight text-dark" style="font-weight:700;">Campaign To Date:</small>
+            <div class="col">
                 <p-calendar [(ngModel)]="toDate"></p-calendar>
-        </div>
+            </div>
     </div>
-    <h4 class="mt-3">
+    <h4 class="sub-heading">
         Sub Filter
     </h4>
-    <hr>
     <div class="row">
-        <small class="col-2">
+        <small class="col-1 bd-highlight text-dark" style="font-weight:700;">
             Vehical campaign status: </small>
         <div class="col-4">
-                <p-dropdown [options]="verticalCampaigneTypes" [(ngModel)]="selectedVerticalType" [showClear]="true"></p-dropdown>
+            <p-dropdown [options]="verticalCampaigneTypes" [(ngModel)]="selectedVerticalType" [showClear]="false"></p-dropdown>
         </div>
 
-        <small class="col-1">From Date:</small>
+        <small class="col-1 bd-highlight text-dark" style="font-weight:700;">From Date:</small>
         <div class="col">
-                <p-calendar [(ngModel)]="subFromDate"></p-calendar>
+            <p-calendar [(ngModel)]="subFromDate"></p-calendar>
         </div>
-        <small class="col-1">To Date:</small>
+        <small class="col-1 bd-highlight text-dark" style="font-weight:700;">To Date:</small>
         <div class="col">
-                <p-calendar [(ngModel)]="subToDate"></p-calendar>
+            <p-calendar [(ngModel)]="subToDate"></p-calendar>
         </div>
     </div>
-    <h4 class="mt-3 text-primary">
+    <div class="mt-3" style="color:blue;font-weight:bold;font-size:15px;margin-bottom: 15px;">
         Overall Remeday Available Date between Mar 26,2018 to Apr 26,2018 (100):
-    </h4>
-    <h4 class="mt-3 ">
-        Selection Criteria
-    </h4>
-    <hr>
-    <div class="d-flex flex-row bd-highlight mb-3">
-        <small class="bd-highlight text-dark">Campaign Type:</small>
-        <small class="pl-2 bd-highlight text-black-100">{{selectedCampaigneType}}</small>
-        <small class="pl-2 bd-highlight text-dark">Line Make:</small>
-        <small class="pl-2 bd-highlight text-black-100">{{selectedLineType}}</small>
-        <small class="pl-2 bd-highlight text-dark">Campaign Date:</small>
-        <small class="pl-2 bd-highlight text-black-100"> {{ getDate()}}</small>
-        <small class="pl-2 bd-highlight text-dark">Vehical campaign status: </small>
-        <small class="pl-2 bd-highlight text-black-100">{{ selectedVerticalType }}</small>
-    </div>
-    <h4 class="mt-3 text-primary">
+        <span>
+            <img src="../../assets/pdf_icon.png" alt="Stop" width="2%" height="2%">
+            <img src="../../assets/xls_icon.png" alt="Stop" width="2%" height="2%">
+        </span>
 
-        <!-- <a href="#" (click)="clear()">Clear Selection Criteria</a> -->
-        <a [routerLink]="['/vendor']">Vendor</a>
+    </div>
+    <h4 class="sub-heading" >
+        Selected Criteria
     </h4>
-    <h4 class="text-danger">
+    <div class="d-flex flex-row bd-highlight ">
+        <small class="bd-highlight text-dark" style="font-weight:700;">Campaign Type:</small>
+        <small class="pl-3 bd-highlight text-black-100">{{selectedCampaigneType}}</small>
+        <small class="pl-3 bd-highlight text-dark" style="font-weight:700;">Line Make:</small>
+        <small class="pl-3 bd-highlight text-black-100 ">{{selectedLineType}}</small>
+        <small class="pl-3 bd-highlight text-dark" style="font-weight:700;">Campaign Date:</small>
+        <small class="pl-3 bd-highlight text-black-100"> {{ getDate()}}</small>
+        <small class="pl-3 bd-highlight text-dark" style="font-weight:700;">Vehical campaign status: </small>
+        <small class="pl-3 bd-highlight text-black-100">{{ selectedVerticalType }}</small>
+    </div>
+    <h4 class="mt-3" style="margin-bottom:0px;">
+        <a style="color:blue;font-weight:bold;font-size:12px;text-decoration:underline;" href="#" (click)="clear()">Clear Selection Criteria</a>
+    </h4>
+    <h4 class="" style="margin-bottom:0px;color:red;font-weight:bold;font-size:12px;">
         Disclaimer: Service Effective Score and Outreach Opportunity is based on the detail provided by service smarts.
     </h4>
-    <small>Details as of: April 5, 2018 at 12:05:56 PM EDT</small>
-    <hr>
-
-    <hr>
-    <p-table #dt [value]="rowData" [columns]="columnDefs" [paginator]="true" [rows]="10">
+    <h4 style="margin-bottom:0px;color:black;font-weight:bold;font-size:12px;">Details as of: April 5, 2018 at 12:05:56 PM EDT </h4>
+    <div class="dealer" style="margin-bottom:5px;padding:12px 2px 40px 2px;border:1px solid #bfbfbf">
+        <p-table #dt [value]="rowData" [columns]="columnDefs" [paginator]="true" [rows]="10" [responsive]="true">
             <ng-template pTemplate="header" let-columns>
-                    <tr>
-                        <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field==EOO">
-                            {{col.headerName}}
-                                <input *ngSwitchCase="'stopSales'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                                <input *ngSwitchCase="'defectCode'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                                <input *ngSwitchCase="'defectDescription'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                                <input *ngSwitchCase="'bulletinNumber'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                            </th>
-                        </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-row let-columns="columns">
-                    <tr>
-                        <td *ngFor="let col of columns">
-                                {{row[col.field]}}
-                        </td>
-                    </tr>
-                </ng-template>
-    </p-table>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field" [ngClass]="{ 'defectDesc': col.field == 'defectDescription'}">
+                        {{col.headerName}}
+                        <input *ngSwitchCase="'stopSales'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'defectCode'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'defectDescription'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'bulletinNumber'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <p-sortIcon *ngSwitchCase="'EOO'" [field]="col.field" [pSortableColumn]="col.field"></p-sortIcon>
+                        <p-sortIcon *ngSwitchCase="'EFRU'" [field]="col.field" [pSortableColumn]="col.field"></p-sortIcon>
+                        <p-sortIcon *ngSwitchCase="'EOOH'" [field]="col.field" [pSortableColumn]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row let-columns="columns">
+                <tr>
+                    <td>
+                        <img src="../../assets/stop_icon.png" alt="Stop" width="40%" height="40%">
+                    </td>
+                    <td [style.color]="'red'">{{row.defectCode}}</td>
+                    <td [style.color]="'red'" class="defectDescription">{{row.defectDescription}}</td>
+                    <td [style.color]="'red'" style="text-decoration: underline;text-decoration-color:black">{{row.bulletinNumber}}</td>
+                    <td [style.color]="'red'">{{row.recallNumber}}</td>
+                    <td [style.color]="'red'">{{row.startDate}}</td>
+                    <td>
+                        <a [routerLink]="['/vendor']" style="text-decoration: underline;">{{row.EOO}}</a>
+                    </td>
+                    <td>{{row.EFRU}}</td>
+                    <td>{{row.EOOH}}</td>
+                    <td>
+                        <img src="../../assets/dashboard.png" alt="Stop" width="30%" height="5%">
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <hr style="background-color: #bfbfbf; height: 1px; border: 0;">
+        <div class=" row float-right">
+            <h4>
+                <div>Export:
+                    <img src="../../assets/pdf_icon.png" alt="Stop" width="20%" height="20%">
+                    <img src="../../assets/xls_icon.png" alt="Stop" width="20%" height="20%">
+                </div>
 
-</div>
-<hr>
-<div class="bottom">
-    <h4 class="float-right pb-2">
-        Export: PDF / Excel
-    </h4>
+            </h4>
+        </div>
+    </div>
 </div>

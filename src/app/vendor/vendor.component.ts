@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendor',
@@ -11,7 +12,7 @@ export class VendorComponent implements OnInit {
   columnDefs: any[];
   rowData: any[];
 
-  constructor() {
+  constructor(private router:Router) {
     this.columnDefs = [
       {
         headerName: 'Stop Sale',
@@ -29,7 +30,7 @@ export class VendorComponent implements OnInit {
         width: 300
       },
       {
-        headerName: 'Chasis',
+        headerName: 'Chassis',
         field: 'chasis',
         width: 120
       }, {
@@ -43,10 +44,9 @@ export class VendorComponent implements OnInit {
         width: 150
       },
       {
-        headerName: 'Months Since Last Date',
+        headerName: 'Months Since Last Service',
         field: 'MSLD',
         width: 180,
-        sortable: true
       },
       {
         headerName: 'Minimum Oppurtunity Hours',
@@ -57,7 +57,7 @@ export class VendorComponent implements OnInit {
       {
         headerName: 'Remedy Status-All open Campaigns',
         field: 'ROOC',
-        width: 180
+        width: 480
       },
       {
         headerName: 'Engineering Series',
@@ -85,14 +85,14 @@ export class VendorComponent implements OnInit {
     this.rowData = [
       {
         stopSales: 'Stop',
-        RemedyCode: 'Yes',
-        vin: '5UXTR9C5',
+        remedyCode: 'yes',
+        vin: '5UXTR9C503568',
         chasis: 'LC82187',
         inPMA: 'Yes',
         serviceDate: '03/20/2018',
         MSLD: '2',
         MOH: '0.3',
-        ROOC: '12',
+        ROOC: 'Y',
         ES: 'G01',
         NAD: 'X3',
         MY: '2017',
@@ -100,14 +100,14 @@ export class VendorComponent implements OnInit {
       },
       {
         stopSales: 'Stop',
-        RemedyCode: '2051270422',
+        remedyCode: 'warn',
         vin: 'C410811 Recall check reapair spoilers',
         chasis: 'C510811',
-        inPMA: '18-v-154',
+        inPMA: 'NO',
         serviceDate: '03/20/2018',
         MSLD: '4',
         MOH: '0.2',
-        ROOC: '12',
+        ROOC: 'N',
         ES: 'Y01',
         NAD: 'D3',
         MY: '1999',
@@ -115,14 +115,14 @@ export class VendorComponent implements OnInit {
       },
       {
         stopSales: 'Stop',
-        RemedyCode: '0051270422',
+        remedyCode: 'stop',
         vin: 'B510811 Recall check reapair spoilers',
         chasis: 'B510811',
-        inPMA: '18-v-154',
+        inPMA: 'Yes',
         serviceDate: '03/20/2018',
         MSLD: '4',
         MOH: '0.2',
-        ROOC: '12',
+        ROOC: 'YN',
         ES: 'Z01',
         NAD: 'G3',
         MY: '2010',
@@ -135,4 +135,9 @@ export class VendorComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToRoute(path: string) {
+    if (path !== '') {
+        this.router.navigateByUrl(path);
+    }
+}
 }

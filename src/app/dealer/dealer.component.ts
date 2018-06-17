@@ -2,26 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-dealer',
-  templateUrl: './dealer.component.html',
-  styleUrls: ['./dealer.component.css']
+    selector: 'app-dealer',
+    templateUrl: './dealer.component.html',
+    styleUrls: ['./dealer.component.css']
 })
 export class DealerComponent implements OnInit {
 
-  title = '22227 Paul miller BMW';
+    title = '22227 Paul Miller BMW';
     campaigneTypes: SelectItem[];
     verticalCampaigneTypes: SelectItem[];
     selectedCampaigneType: any;
     columnDefs: any[];
     rowData: any[];
-    lineTypes:SelectItem[];
-    selectedLineType:any;
-    fromDate:any = "";
-    toDate:any = "";
-    selectedVerticalType:any;
-    subFromDate:any;
-    subToDate:any;
+    lineTypes: SelectItem[];
+    selectedLineType: any;
+    fromDate: any = "";
+    toDate: any = "";
+    selectedVerticalType: any;
+    subFromDate: any;
+    subToDate: any;
     percent = "45.9/52";
+    descEFRUOrder = 1;
 
     constructor() {
         this.columnDefs = [
@@ -64,7 +65,7 @@ export class DealerComponent implements OnInit {
                 headerName: 'Estimated FRU',
                 field: 'EFRU',
                 width: 150,
-                
+
             },
             {
                 headerName: 'Eligibility Outreach Opportunity Hours',
@@ -75,7 +76,7 @@ export class DealerComponent implements OnInit {
                 field: 'dashboard', width: 150
             }
         ];
-    
+
         this.rowData = [
             {
                 stopSales: 'Stop',
@@ -114,9 +115,9 @@ export class DealerComponent implements OnInit {
                 dashboard: '',
             }
         ];
-    
+
         this.verticalCampaigneTypes = [
-            { label: 'Vehical for Which all Campaign(s) can be fixed', value: 'v' },
+            { label: 'Vehical for Which all Campaign(s) can be fixed', value: 'Vehical for Which all Campaign(s) can be fixed' },
             { label: 'Action', value: 'action' },
             { label: '2', value: 2 },
             { label: '3', value: 3 },
@@ -124,43 +125,43 @@ export class DealerComponent implements OnInit {
         ];
 
         this.campaigneTypes = [
-            { label: 'All', value: 'All' },
+            { label: 'ALL', value: 'All' },
             { label: 'E-Emission', value: 'E-Emission' },
             { label: 'Other', value: 'Other' },
             { label: 'S-Saftey', value: 'S-Saftey' },
         ];
 
-        this.lineTypes= [
-            { label: 'All', value: 'All' },
+        this.lineTypes = [
+            { label: 'ALL', value: 'All' },
             { label: 'SUV', value: 'suv' },
             { label: 'MINI', value: 'mini' },
-    ]
-
+        ]
     }
 
-    ngOnInit(){
-        this.selectedCampaigneType = this.campaigneTypes.slice(0,1).map(a => a.value);
-        this.selectedLineType = this.lineTypes.slice(0,1).map(a => a.value);
-    }
-    private getDate(){
-        let fromDate:any = this.fromDate;
-        let toDate:any = this.toDate;
+    ngOnInit() {
 
-        if(!!fromDate && !!toDate){
-            return new Date(fromDate).toLocaleDateString("en-US") +"-"+ new Date(toDate).toLocaleDateString("en-US");
+        this.selectedCampaigneType = this.campaigneTypes.slice(0, 1).map(a => a.value);
+        this.selectedLineType = this.lineTypes.slice(0, 1).map(a => a.value);
+        this.selectedVerticalType = this.verticalCampaigneTypes.slice(0, 1).map(a => a.value);
+    }
+    private getDate() {
+        let fromDate: any = this.fromDate;
+        let toDate: any = this.toDate;
+
+        if (!!fromDate && !!toDate) {
+            return new Date(fromDate).toLocaleDateString("en-US") + "-" + new Date(toDate).toLocaleDateString("en-US");
         }
-        else{
+        else {
             return "All";
         }
 
     }
 
-    private clear(){
-        this.selectedCampaigneType = this.campaigneTypes.slice(0,1).map(a => a.value);
-        this.selectedLineType = this.lineTypes.slice(0,1).map(a => a.value);
-        this.selectedVerticalType="";
-        this.fromDate="";
-        this.toDate="";
+    private clear() {
+        this.selectedCampaigneType = this.campaigneTypes.slice(0, 1).map(a => a.value);
+        this.selectedLineType = this.lineTypes.slice(0, 1).map(a => a.value);
+        this.selectedVerticalType = "";
+        this.fromDate = "";
+        this.toDate = "";
     }
-
 }
