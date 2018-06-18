@@ -57,12 +57,12 @@
     <ng-template pTemplate="body" let-row let-columns="columns">
         <tr>
             <td>
-                <img src="stop_icon.png" alt="Stop" width="50%" >
+                <img src="../../assets/stop_icon.png" alt="Stop" width="50%" >
             </td>
             <td>
-                <img *ngIf="row.remedyCode == 'yes'" src="ora_y.png" alt="Stop" width="50%">
-                <img *ngIf="row.remedyCode == 'warn'" src="ora_s.png" alt="Stop" width="50%">
-                <img *ngIf="row.remedyCode == 'stop'" src="ora_n.png" alt="Stop" width="50%">
+                <img *ngIf="row.remedyCode == 'yes'" src="../../assets/ora_y.png" alt="Stop" width="50%">
+                <img *ngIf="row.remedyCode == 'warn'" src="../../assets/ora_s.png" alt="Stop" width="50%">
+                <img *ngIf="row.remedyCode == 'stop'" src="../../assets/ora_n.png" alt="Stop" width="50%">
             </td>
             <td class="vin">{{row.vin}}</td>
             <td>{{row.chasis}}</td>
@@ -73,31 +73,31 @@
             <td class="remote">
                 <div *ngIf="row.ROOC == 'Y'">
                     <div>
-                        <img src="remedy_11_UI.png" alt="Stop" width="5%">
+                        <img src="../../assets/remedy_11_UI.png" alt="Stop" width="5%">
                         <span> B510818 Recall: Repair</span>
                     </div>
                     <div>
-                        <img src="remedy_11_UI.png" alt="Stop" width="5%">
+                        <img src="../../assets/remedy_11_UI.png" alt="Stop" width="5%">
                         <span> B130118 Service Action: Check Routing of fuel line</span>
                     </div>
                 </div>
                 <div *ngIf="row.ROOC == 'N'">
                     <div>
-                        <img src="remedy_12_UI.png" alt="Stop" width="5%">
+                        <img src="../../assets/remedy_12_UI.png" alt="Stop" width="5%">
                         <span> B130118 Service Action: Check Routing of fuel line</span>
                     </div>
                     <div>
-                        <img src="remedy_12_UI.png" alt="Stop" width="5%">
+                        <img src="../../assets/remedy_12_UI.png" alt="Stop" width="5%">
                         <span> B130118 Service Action: Check Routing of fuel line</span>
                     </div>
                 </div>
                 <div *ngIf="row.ROOC == 'YN'">
                         <div>
-                            <img src="remedy_11_UI.png" alt="Stop" width="5%">
+                            <img src="../../assets/remedy_11_UI.png" alt="Stop" width="5%">
                             <span> B130118 Service Action: Check Routing of fuel line</span>
                         </div>
                         <div>
-                            <img src="remedy_12_UI.png" alt="Stop" width="5%">
+                            <img src="../../assets/remedy_12_UI.png" alt="Stop" width="5%">
                             <span> B130118 Service Action: Check Routing of fuel line</span>
                         </div>
                     </div>
@@ -125,8 +125,8 @@ style="padding-right: 550px;" -->
 <div class=" row float-right">
         <h4>
             <div>Export:
-                <img src="pdf_icon.png" alt="Stop" width="20%" height="20%">
-                <img src="xls_icon.png" alt="Stop" width="20%" height="20%">
+                <img src="../../assets/pdf_icon.png" alt="Stop" width="20%" height="20%">
+                <img src="../../assets/xls_icon.png" alt="Stop" width="20%" height="20%">
             </div>
 
         </h4>
