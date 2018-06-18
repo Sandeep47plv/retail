@@ -21,11 +21,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/pdf_icon.png",
-              "src/assets/xls_icon.png",
-              "src/assets/stop_icon.png",
-              "src/assets/pdf_icon.png",
-              "src/assets/dashboard.png"
+              "src/pdf_icon.png",
+              "src/xls_icon.png",
+              "src/stop_icon.png",
+              "src/pdf_icon.png",
+              "src/dashboard.png"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
